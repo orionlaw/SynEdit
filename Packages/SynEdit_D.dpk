@@ -1,42 +1,43 @@
-package SynEdit_D7_TNT;
+package SynEdit_D;
 
 {$R *.res}
-{$R '..\Source\SynEditReg.dcr'}
+{$R '..\..\Source\SynEditReg.dcr'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
 {$ALIGN 8}
 {$ASSERTIONS ON}
 {$BOOLEVAL OFF}
-{$DEBUGINFO ON}
+{$DEBUGINFO OFF}
 {$EXTENDEDSYNTAX ON}
 {$IMPORTEDDATA ON}
 {$IOCHECKS ON}
 {$LOCALSYMBOLS ON}
 {$LONGSTRINGS ON}
 {$OPENSTRINGS ON}
-{$OPTIMIZATION ON}
+{$OPTIMIZATION OFF}
 {$OVERFLOWCHECKS OFF}
 {$RANGECHECKS OFF}
 {$REFERENCEINFO ON}
 {$SAFEDIVIDE OFF}
-{$STACKFRAMES OFF}
+{$STACKFRAMES ON}
 {$TYPEDADDRESS OFF}
 {$VARSTRINGCHECKS ON}
 {$WRITEABLECONST ON}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'SynEdit component suite'}
+{$LIBSUFFIX AUTO}
 {$DESIGNONLY}
 {$IMPLICITBUILD ON}
-{$DEFINE USE_TNT_DESIGNTIME_SUPPORT}
 
 requires
-  TntUnicodeVcl_D70,
-  TntUnicodeVcl_R70,
   designide,
-  SynEdit_R7_TNT;
+  SynEdit_R;
 
 contains
-  SynEditReg in '..\Source\SynEditReg.pas',
-  SynEditPropertyReg in '..\Source\SynEditPropertyReg.pas',
-  SynHighlighterManager in '..\Source\SynHighlighterManager.pas';
+  SynEditReg in '..\..\Source\SynEditReg.pas',
+  SynEditPropertyReg in '..\..\Source\SynEditPropertyReg.pas',
+  SynHighlighterManager in '..\..\Source\SynHighlighterManager.pas';
 
 end.
