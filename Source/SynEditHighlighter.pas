@@ -247,16 +247,15 @@ type
   TSynHighlighterList = class(TList)
   private
     FHighlighterList: TList;
-    function GetItem(Index: Integer): TSynCustomHighlighterClass;
+    function GetItem(Index: NativeInt): TSynCustomHighlighterClass;
   public
     constructor Create;
     destructor Destroy; override;
-    function Count: Integer;
+    function Count: NativeInt;
     function FindByFriendlyName(FriendlyName: string): Integer;
     function FindByName(Name: string): Integer;
     function FindByClass(Comp: TComponent): Integer;
-    property Items[Index: Integer]: TSynCustomHighlighterClass
-      read GetItem; default;
+    property Items[Index: NativeInt]: TSynCustomHighlighterClass read GetItem; default;
   end;
 
   procedure RegisterPlaceableHighlighter(highlighter:
@@ -276,7 +275,7 @@ uses
 {$IFNDEF SYN_CPPB_1}
 { THighlighterList }
 
-function TSynHighlighterList.Count: Integer;
+function TSynHighlighterList.Count: NativeInt;
 begin
   Result := FHighlighterList.Count;
 end;
@@ -338,7 +337,7 @@ begin
   end;
 end;
 
-function TSynHighlighterList.GetItem(Index: Integer): TSynCustomHighlighterClass;
+function TSynHighlighterList.GetItem(Index: NativeInt): TSynCustomHighlighterClass;
 begin
   Result := TSynCustomHighlighterClass(FHighlighterList[Index]);
 end;
